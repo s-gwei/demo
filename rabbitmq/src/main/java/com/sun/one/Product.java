@@ -1,4 +1,4 @@
-package com.sun.product;
+package com.sun.one;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -20,6 +20,9 @@ public class Product {
         factory.setVirtualHost("/");
         factory.setUsername("guest");
         factory.setPassword("guest");
+//        factory.setUsername("admin");
+//        factory.setPassword("admin");
+
         //channel 实现了自动 close 接口 自动关闭 不需要显示关闭
         //获取信道
         try (Connection connection = factory.newConnection();
