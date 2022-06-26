@@ -25,9 +25,8 @@ public class Product {
 
         //channel 实现了自动 close 接口 自动关闭 不需要显示关闭
         //获取信道
-        try (Connection connection = factory.newConnection();
-             Channel channel =
-                     connection.createChannel()) {
+        Connection connection = factory.newConnection();
+             Channel channel =connection.createChannel();
             /**
              * 生成一个队列
              * 1.队列名称
@@ -37,7 +36,7 @@ public class Product {
              * 5.其他参数
              */
             channel.queueDeclare(QUEUE_NAME, false, false, false, null);
-            String message = "hello sungw";
+            String message = "hello world";
             /**
              * 发送一个消息
              * 1.发送到那个交换机
@@ -47,6 +46,5 @@ public class Product {
              */
             channel.basicPublish("", QUEUE_NAME, null, message.getBytes());
             System.out.println("消息发送完毕");
-        }
     }
 }

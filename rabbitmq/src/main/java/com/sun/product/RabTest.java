@@ -5,7 +5,7 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.testng.annotations.Test;
+//import org.testng.annotations.Test;
 
 /**
  * @author sungw
@@ -20,7 +20,7 @@ public class RabTest {
     private RabbitTemplate rabbitTemplate;  // 注入一个RabbitMQ的模板对象，操作消息队列的对象
 
     // 发送一条点对点（Direct）的消息，又称为直连
-    @Test
+//    @Test
     public void sendQueue(){
         System.out.println("开始向队列中发送一条消息！");
         // 参数1：管理中的队列名  参数2：发送的消息
