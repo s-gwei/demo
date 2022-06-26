@@ -15,7 +15,7 @@ public class Product {
     public static void main(String[] args) throws Exception {
         //创建一个连接工厂
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("39.104.17.229");
+        factory.setHost("43.142.160.159");
         factory.setPort(5672);
         factory.setVirtualHost("/");
         factory.setUsername("guest");

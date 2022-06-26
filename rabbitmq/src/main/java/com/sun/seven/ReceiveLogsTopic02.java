@@ -2,7 +2,7 @@ package com.sun.seven;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.DeliverCallback;
-import sun.utils.RabbitMQutils;
+import com.sun.utils.RabbitMQutils;
 
 /**
  * @description: 消费者1号
