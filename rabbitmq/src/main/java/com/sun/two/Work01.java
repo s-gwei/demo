@@ -27,7 +27,7 @@ public class Work01 {
         CancelCallback cancelCallback=(consumerTag)->{
             System.out.println(consumerTag+"消费者取消消费接口回调逻辑");
         };
-        System.out.println("C2 消费者启动等待消费......");
+        System.out.println(Thread.currentThread().getName()+"C2 消费者启动等待消费......");
         channel.basicConsume(QUEUE_NAME,true,deliverCallback,cancelCallback);
     }
 }
