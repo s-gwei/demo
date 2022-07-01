@@ -1,5 +1,6 @@
 package com.sun.three;
 
+import com.rabbitmq.client.CancelCallback;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.DeliverCallback;
 import com.sun.utils.RabbitMQutils;
@@ -15,9 +16,8 @@ public class Work03 {
     public static void main(String[] args) throws Exception {
         Channel channel = RabbitMQutils.getChannel();
         //不公平分发，预期值设置prefetCount为2时，就是预期值
-        int prefetCount = 1;
-        channel.basicQos(prefetCount);
-
+//        int prefetCount = 1;
+//        channel.basicQos(prefetCount);
 
         System.out.println("C1 等待接收消息处理时间较短");
         //消息消费的时候如何处理消息
@@ -31,10 +31,11 @@ public class Work03 {
              */
             channel.basicAck(delivery.getEnvelope().getDeliveryTag(),false);
         };
+        CancelCallback cancelCallback =(consumerTag)->{
+            System.out.println(consumerTag+"消费者取消消费接口回调逻辑");
+        };
         //1,采用手动应答
         boolean autoAck=false;
-        channel.basicConsume(ACK_QUEUE_NAME,autoAck,deliverCallback,(consumerTag)->{
-            System.out.println(consumerTag+"消费者取消消费接口回调逻辑");
-        });
+        channel.basicConsume(ACK_QUEUE_NAME,autoAck,deliverCallback,cancelCallback);
     }
 }
