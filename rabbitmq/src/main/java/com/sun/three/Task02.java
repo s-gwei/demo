@@ -8,6 +8,8 @@ import java.util.Scanner;
 
 /**
  * @author sungw
+ * 消息被多个消费者消费时，当某个消费者中断，消息也不会丢失，
+ * 会被其他消费者消费，这需要设置消费的应答方式为手动应答
  * @version 1.0
  * @date 2021/8/9 3:12 下午
  */
@@ -16,9 +18,7 @@ public class Task02 {
 
     public static void main(String[] argv) throws Exception {
         try (Channel channel = RabbitMQutils.getChannel()) {
-            //消息持久化
-//            boolean durable = true;
-//            channel.queueDeclare(TASK_QUEUE_NAME, durable, false, false, null);
+
             channel.queueDeclare(TASK_QUEUE_NAME, false, false, false, null);
             Scanner sc = new Scanner(System.in);
             System.out.println("请输入信息");
