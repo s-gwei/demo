@@ -16,14 +16,14 @@ public class EmitLogTopic {
     public static void main(String[] argv) throws Exception {
         try (Channel channel = RabbitMQutils.getChannel()) {
             channel.exchangeDeclare(EXCHANGE_NAME, "topic");
-/**
- * Q1-->绑定的是
- * 中间带 orange 带 3 个单词的字符串(*.orange.*)
- * Q2-->绑定的是
- * 最后一个单词是 rabbit 的 3 个单词(*.*.rabbit)
- * 第一个单词是 lazy 的多个单词(lazy.#)
- *
- */
+            /**
+             * Q1-->绑定的是
+             * 中间带 orange 带 3 个单词的字符串(*.orange.*)
+             * Q2-->绑定的是
+             * 最后一个单词是 rabbit 的 3 个单词(*.*.rabbit)
+             * 第一个单词是 lazy 的多个单词(lazy.#)
+             *
+             */
             Map<String, String> bindingKeyMap = new HashMap<>();
             bindingKeyMap.put("quick.orange.rabbit","被队列 Q1Q2 接收到");
             bindingKeyMap.put("lazy.orange.elephant","被队列 Q1Q2 接收到");
