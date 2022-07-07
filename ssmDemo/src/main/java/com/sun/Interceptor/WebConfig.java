@@ -1,4 +1,4 @@
-package com.com.Interceptor;
+package com.sun.Interceptor;
 
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
