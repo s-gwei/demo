@@ -55,13 +55,7 @@ public class MyCallBack implements RabbitTemplate.ConfirmCallback,RabbitTemplate
      * @param routingKey 路由Key
      */
     @Override
-    public void returnedMessage(
-            Message message,
-            int replyCode,
-            String replyText,
-            String exchange,
-            String routingKey
-    ) {
+    public void returnedMessage(Message message, int replyCode, String replyText, String exchange, String routingKey) {
         log.error("消息{}，被交换机{}退回，路由Key是{}，退回原因是{}",new String(message.getBody()),exchange
                                             ,routingKey,replyText);
     }

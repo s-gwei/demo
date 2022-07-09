@@ -45,4 +45,18 @@ public class MsgController {
             return message;
         });
     }
+
+    /**基于插件的延时队列*/
+    @GetMapping("/sendDelayedMsg/{msg}/{delayedTime}")
+    public void sendDelayedMsg(@PathVariable("msg")String msg,@PathVariable("delayedTime")Integer delayedTime){
+        /**后者会给占位符赋值，实现动态传递*/
+        log.info("当前时间:{},发送一条时长是{}ms的延时消息给QC队列,内容是{}",new Date(),delayedTime,msg);
+        rabbitTemplate.convertAndSend("delayed.exchange","delayed.routingkey",
+                "延时消息的时间是"+ delayedTime +"，内容为:" + msg, message ->{
+                    /**生产者设置延时时间 */
+                    /**和上面的有区别*/
+                    message.getMessageProperties().setDelay(delayedTime);
+                    return message;
+                });
+    }
 }
