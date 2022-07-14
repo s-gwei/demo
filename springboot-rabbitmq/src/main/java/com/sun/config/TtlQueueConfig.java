@@ -28,6 +28,7 @@ public class TtlQueueConfig {
     private static final String QUEUE_C ="QC";
 
 
+
     /**声明XExchange  别名*/
     @Bean("xExchange")
     public DirectExchange xDirectExchange(){
