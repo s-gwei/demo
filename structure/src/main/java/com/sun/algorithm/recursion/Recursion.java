@@ -10,7 +10,8 @@ package com.sun.algorithm.recursion;
  **/
 public class Recursion {
     public static void main(String[] args) {
-        System.out.println(new Recursion().recursion(6));
+//        System.out.println(new Recursion().recursion(6));
+        System.out.println(new Recursion().recursion01(4));
     }
 
     /**
@@ -25,6 +26,18 @@ public class Recursion {
             return 1;
         }
         return recursion(n-1)+recursion(n-2);
+    }
+
+    /**
+     * 计算阶乘 n!
+     * @param n
+     * @return
+     */
+    public int recursion01(int n){
+        if(n==1){
+            return 1;
+        }
+        return recursion01(n-1)*n;
     }
 
 
