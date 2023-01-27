@@ -7,7 +7,7 @@ public class CountDownLatchTest01 {
         long start = System.currentTimeMillis();
         CountDownLatch countDownLatch = new CountDownLatch(5);
         Demo demo = new Demo(countDownLatch);
-        for(int i=0;i<5;i++){
+        for(int i=0;i<1000;i++){
             new Thread(demo, String.valueOf(i)).start();
         }
 
