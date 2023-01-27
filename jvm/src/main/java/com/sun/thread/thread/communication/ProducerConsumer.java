@@ -23,7 +23,7 @@ class Clrek{
     private int productCount = 0;
     //生产商品
     public synchronized void getProduct() throws InterruptedException {
-        if(productCount < 20){
+        if(productCount < 2000){
             productCount++;
             System.out.println(Thread.currentThread().getName() + "开始生产第" + productCount + "个商品");
             notify();

@@ -40,9 +40,7 @@ public class CommunicationTest {
 class AlternateDemo{
     private static volatile int number = 1;//标记正在执行的线程
     Object obj = new Object();
-    {
 
-    }
     public void loopA(int tap){
         synchronized (obj){
             //1.判断此时线程标记

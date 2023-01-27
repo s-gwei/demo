@@ -19,7 +19,7 @@ public class ThreadDemo03 {
 
 class Demo03 implements Runnable{
 
-//    private  int ticket = 10;
+//    private  int ticket = 10000;
     private  static int ticket = 100;
     @Override
     public void run() {

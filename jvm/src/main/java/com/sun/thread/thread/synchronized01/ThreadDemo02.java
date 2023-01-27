@@ -36,6 +36,4 @@ class Demo02 implements Runnable {
         }
 
     }
-
-
 }

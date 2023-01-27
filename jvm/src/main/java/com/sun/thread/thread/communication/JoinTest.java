@@ -19,7 +19,7 @@ public class JoinTest {
             public void run() {
 //                long start = System.currentTimeMillis();
 
-                for(int i = 0;i<10;i++){
+                for(int i = 0;i<100;i++){
                     System.out.println(Thread.currentThread().getName()+i);
                 }
 //                long end = System.currentTimeMillis();

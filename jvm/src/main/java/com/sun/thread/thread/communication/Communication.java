@@ -33,7 +33,7 @@ class Number implements Runnable{
         while (true){
             synchronized (this){
                 notify();
-                if(number<=10){
+                if(number<=100){
                     System.out.println(Thread.currentThread().getName()+"执行了第"+number+"次");
                     number++;
                 }else {
