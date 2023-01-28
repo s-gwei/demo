@@ -10,7 +10,6 @@ import java.util.concurrent.FutureTask;
  * 双重检测锁实现单例模式
  * 并发条件下实现单例模式：双重检测锁，使用的静止指令重排序
  * 双重检测锁也还是会出现线程不安全问题，与类的创建有关，可以使用volatile关键字，
- *
  */
 public class DoubleLock {
 
@@ -46,7 +45,6 @@ public class DoubleLock {
      *  赋值为0后，出现，指令重排问题，
      *  被其他线程调用，此时该线程获取到值为0
      */
-
 
     private  volatile int a =6;
 

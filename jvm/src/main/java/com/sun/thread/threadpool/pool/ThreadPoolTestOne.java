@@ -17,7 +17,7 @@ public class ThreadPoolTestOne {
         Random random = new Random();
         List<Integer> list = new ArrayList<>();
         ExecutorService executor = Executors.newSingleThreadExecutor();
-        for(int i=0;i<100000;i++){
+        for(int i=0;i<100000000;i++){
             executor.execute(new Runnable() {
                 @Override
                 public void run() {
