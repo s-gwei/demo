@@ -23,15 +23,15 @@ public class TraversingBinaryTree {
 
         //先根遍历 1-2-4-5-3-6-7
 //        preorderNode(head);
-//        preorderDFS(head);
+        preorderDFS(head);
 
         //中根遍历4-2-5-1-6-3-7
 //        miorderNode(head);
-        inorderDFS(head);
+//        inorderDFS(head);
 
         //后根遍历4-5-2-6-7-3-1
 //        posteriorNode(head);
-//        posteriorDFS(head);
+        posteriorDFS(head);
 
         //层序遍历：1-2-3-4-5-6-7
 //        floorBFS(head);
@@ -136,6 +136,11 @@ public class TraversingBinaryTree {
         stack.push(root);
         while(!stack.isEmpty()){
             TreeNode node = stack.pop();
+            //还有个问题，就是你在一个位置一直add（index ， element）。
+            // 这个不仅仅是把index位置的数据给替换啦，
+            // 而且把之前这个位置的数据给依次向后移动啦，
+            // 这个跟map的结构不一样，map是更新指定位置的数据，
+            // 其他的数据不动，这个list竟然是把把数据平移啦。。。。。
             list.add(0,node.val);
             if(node.left != null){
                 stack.push(node.left);
@@ -158,7 +163,7 @@ public class TraversingBinaryTree {
         if(root == null){
             return;
         }
-        //使用队列实现层序遍历
+        //使用队列实现层序遍历,队列先进先出，栈先进后出
         Queue<TreeNode> queue = new LinkedList<>();
         //入队
         queue.add(root);

@@ -10,7 +10,6 @@ package com.sun.array;
  *
  * 换言之，byte[] bs="a".getBytes();
  *
- *
  * bs=[49] 即是它的asc编码
  */
 public class ByteTest {

@@ -37,7 +37,6 @@ public class ArrayList {
             }
             newList[size] = obj;
             oldList = newList;
-            int a = 1;
         }
         //不需要扩容时，直接加到数组中
         else{
