@@ -7,25 +7,23 @@ package com.sun.algorithm.structure;
  **/
 public class Stack<E> {
 
-    private E element;
-    private NodeTwo<E> first;
-    private NodeTwo<E> last;
+    private Node head;
     private int size;
 
     public void add(E element){
-        NodeTwo<E> head = this.first;
-        NodeTwo<E> node = new NodeTwo<>(element,null,null);
-        if(head == null){
-            this.first = node;
+        Node node = this.head;
+        Node newNode = new Node(element,null);
+        if(node == null){
+            this.head = node;
         }else {
             node.next = head;
-            this.first = node;
+            this.head = newNode;
         }
     }
 
-    public NodeTwo remove(){
-        NodeTwo node = this.first;
-        this.first = node.next;
+    public Node remove(){
+        Node node = this.head;
+        this.head = node.next;
         return node;
     }
 }
