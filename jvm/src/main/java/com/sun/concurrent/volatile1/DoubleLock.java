@@ -39,7 +39,7 @@ public class DoubleLock {
             System.out.println(task);
         }
     }
-    public static volatile DoubleLock instance = null;
+    public static volatile DoubleLock instance;
     /**
      *  先给a赋值为0，再赋值为6，两步操作重排，
      *  赋值为0后，出现，指令重排问题，

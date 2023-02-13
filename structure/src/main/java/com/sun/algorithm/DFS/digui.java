@@ -21,9 +21,9 @@ public class digui {
         //先根遍历
 //        firstRoot(head);
         //中根遍历
-//        secodeRoot(head);
-        //后根遍历
-        lastRoot(head);
+        secodeRoot(head);
+//        后根遍历
+//        lastRoot(head);
     }
 
     private void lastRoot(TreeNode head) {
@@ -47,29 +47,19 @@ public class digui {
         System.out.println(Arrays.toString(list.toArray()));
     }
 
-    private void secodeRoot(TreeNode head) {
-        if(head == null){
-            return;
-        }
-        //创建栈对象
+    private void secodeRoot(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
         Stack<TreeNode> stack = new Stack<>();
-        List list = new ArrayList();
-        //入栈
-        stack.add(head);
-        while(!stack.isEmpty()){
-            //出队
-            TreeNode node = stack.pop();
-            if(node.right != null){
-                stack.add(node.right);
+        while(root!=null||!stack.isEmpty()){
+            while(root!=null){
+                stack.push(root);
+                root = root.left;
             }
-            if(node.left != null){
-                stack.add(node.left);
-            }
-//            System.out.println(node.val+";");
-            list.add(0,node.val);
-
+            root = stack.pop();
+            list.add(root.val);
+            root = root.right;
         }
-        System.out.println(Arrays.toString(list.toArray()));
+//        return list;
     }
 
     private void firstRoot(TreeNode head) {
